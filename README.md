@@ -1,6 +1,6 @@
 ## Тестовое задание от банка Кубань-кредит
-- Настроить проект с Maven в качестве платформы для сборки;
-- Добавить Selenide, TestNG, REST-ASSURED в зависимости Maven;
+- Настроить проект с Maven в качестве платформы для сборки
+- Добавить Selenide, TestNG, REST-ASSURED в зависимости Maven
 - С помощью Selenide открыть и написать пару авто тестов для сайта https://www.globalsqa.com/angularJs-protractor/BankingProject/
 
 - Кейсы можно писать любые, но обязательно надо написать кейс на логин под обычным пользователем
@@ -35,6 +35,6 @@
 |10. Нажать на кнопку "Deposit"|	Должно отобразиться поле ввода "amount"|	pass|
 |11. Ввести в поле "amount": 0|	На странице не найдена надпись "Deposit Successful" |	pass|
 |12. Ввести в поле "amount": 1|	На странице отобразилась надпись "Deposit Successful"|	pass|
-|13. Нажать на кнопку "Deposit"| Открылась страница https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx|	pass|
+|13. Нажать на кнопку "Transactions"| Открылась страница https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx|	pass|
 |14. Проверить наличие транзакции суммой 1| Найдена транзакция от сегодняйшней с даты суммой 1 и Transaction Type = "Credit" |	pass|
 
