@@ -31,7 +31,7 @@
 
 |Test to reproduce|	Expected Result	                        |Status (passed,skipped, failed, bloked)|
 | --------------- | ----------------------------------------| --------- | 
-|9. Ввести в поле "Account": 1015|	Нас странице должна отобразиться надпись "Account Number : 1015 , Balance : 0 , Currency : Rupee"|	pass|
+|9. Ввести в поле "Account": 1014|	На странице должна отобразиться надпись "Account Number : 1014 , Balance : 0 , Currency : Pound"|	pass|
 |10. Нажать на кнопку "Deposit"|	Должно отобразиться поле ввода "amount"|	pass|
 |11. Ввести в поле "amount": 0|	На странице не найдена надпись "Deposit Successful" |	pass|
 |12. Ввести в поле "amount": 1|	На странице отобразилась надпись "Deposit Successful"|	pass|
