@@ -13,45 +13,48 @@ import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.*;
 
 public class DepositTest {
-    private final LocatorAccount locatoraccount = new LocatorAccount();
-    private final LocatorLoginPage locatorloginpage = new LocatorLoginPage();
+    private final Account account = new Account();
+    private final LoginPage loginpage = new LoginPage();
 
     @Test
     public void testDeposit(){
+        String customer1 = "Albus Dumbledore";
+        String customer2 = "Neville Longbottom";
         open(ConfProperties.getProperty("loginpage"));
-        locatorloginpage.customerButton.click();
-        webdriver().shouldHave(url(ConfProperties.getProperty("urlCustomer")));
-        locatorloginpage.userSelection.selectOptionByValue("4");
-        locatorloginpage.userSelection.selectOptionByValue("");
-        locatorloginpage.userSelection.selectOptionByValue("5");
-        locatorloginpage.loginButton.click();
-        webdriver().shouldHave(url(ConfProperties.getProperty("urlAccount")));
-        locatorloginpage.foundTextAboutUser.shouldHave(exactText("Neville Longbottom"));
+        loginpage.setCustomerButton();
+        loginpage.checkUrl("urlCustomer");
+        loginpage.setUserSelection(customer1);
+        loginpage.setUserSelection("");
+        loginpage.setLoginButtonNotBe();
+        loginpage.setUserSelection(customer2);
+        loginpage.setLoginButton();
+        loginpage.checkUrl("urlAccount");
+        loginpage.setFoundTextAboutUser(customer2);
 
-        locatoraccount.accountSelection.selectOptionByValue("number:1014");
-        locatoraccount.accountNumber.shouldHave(exactText("1014"));
-        locatoraccount.accountBalance.shouldHave(exactText("0"));
-        locatoraccount.accountCurrency.shouldHave(exactText("Pound"));
+        account.setAccountSelection("number:1014");
+        account.setAccountNumber("1014");
+        account.setAccountBalance("0");
+        account.setAccountCurrency("Pound");
 
-        locatoraccount.depositButton.click();
+        account.setDepositButton();
 
-        locatoraccount.amountInter.sendKeys("0");
-        locatoraccount.depositEnterButton.click();
-        locatoraccount.textDepositSuccessful.shouldNotBe(visible);
+        account.setAmountInter("0");
+        account.setDepositEnterButton();
+        account.setTextDepositSuccessful();
 
-        locatoraccount.amountInter.clear();
-        locatoraccount.amountInter.sendKeys("1");
+        account.amountInter.clear();
+        account.setAmountInter("1");
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy h:mm:ss aaa",Locale.ENGLISH);
         String dateDeposit = dateFormat.format(new Date());
-        locatoraccount.depositEnterButton.click();
-        locatoraccount.textDepositSuccessful.shouldHave(exactText("Deposit successful"));
+        account.setDepositEnterButton();
+        account.setTextDepositSuccessful("Deposit successful");
 
-        locatoraccount.transactionsButton.click();
+        account.setTransactionsButton();
         webdriver().shouldHave(url(ConfProperties.getProperty("urlTransaction")));
-        locatoraccount.transactionDate.shouldHave(exactText(dateDeposit));
-        locatoraccount.transactionSum.shouldHave(exactText("1"));
-        locatoraccount.transactionType.shouldHave(exactText("Credit"));
+        account.setTransactionDate(dateDeposit);
+        account.setTransactionSum("1");
+        account.setTransactionType("Credit");
 
     }
 }

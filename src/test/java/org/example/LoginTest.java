@@ -3,24 +3,26 @@ package org.example;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverConditions.*;
 
 
 public class LoginTest {
-    private final LocatorLoginPage locatorloginpage = new LocatorLoginPage();
+    private final LoginPage loginpage = new LoginPage();
 
     @Test
     public void testLogin() {
+        String customer1 = "Albus Dumbledore";
+        String customer2 = "Neville Longbottom";
         open(ConfProperties.getProperty("loginpage"));
-        locatorloginpage.customerButton.click();
-        webdriver().shouldHave(url(ConfProperties.getProperty("urlCustomer")));
-        locatorloginpage.userSelection.selectOptionByValue("4");
-        locatorloginpage.userSelection.selectOptionByValue("");
-        locatorloginpage.userSelection.selectOptionByValue("5");
-        locatorloginpage.loginButton.click();
-        webdriver().shouldHave(url(ConfProperties.getProperty("urlAccount")));
-        locatorloginpage.foundTextAboutUser.shouldHave(exactText("Neville Longbottom"));
+        loginpage.setCustomerButton();
+        loginpage.checkUrl("urlCustomer");
+        loginpage.setUserSelection(customer1);
+        loginpage.setUserSelection("");
+        loginpage.setLoginButtonNotBe();
+        loginpage.setUserSelection(customer2);
+        loginpage.setLoginButton();
+        loginpage.checkUrl("urlAccount");
+        loginpage.setFoundTextAboutUser(customer2);
     }
 
 
