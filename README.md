@@ -25,6 +25,7 @@
 |6. Нажать на кнопку "Login"|	Открылась страница https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account|	pass|
 |7. Проверить наличие надписи Welcome "Neville Longbottom" |	Надпись найдена|	pass|
 
+
 ### Тест-кейс №2
 
 | Test ID  | Name                                             | Precondition             |                      
