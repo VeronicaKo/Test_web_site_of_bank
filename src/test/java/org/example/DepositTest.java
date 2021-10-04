@@ -21,40 +21,40 @@ public class DepositTest {
         String customer1 = "Albus Dumbledore";
         String customer2 = "Neville Longbottom";
         open(ConfProperties.getProperty("loginpage"));
-        loginpage.setCustomerButton();
+        loginpage.clickCustomerButton();
         loginpage.checkUrl("urlCustomer");
-        loginpage.setUserSelection(customer1);
-        loginpage.setUserSelection("");
-        loginpage.setLoginButtonNotBe();
-        loginpage.setUserSelection(customer2);
-        loginpage.setLoginButton();
+        loginpage.enterUserSelection(customer1);
+        loginpage.enterUserSelection("");
+        loginpage.loginButtonNotBe();
+        loginpage.enterUserSelection(customer2);
+        loginpage.clickLoginButton();
         loginpage.checkUrl("urlAccount");
-        loginpage.setFoundTextAboutUser(customer2);
+        loginpage.foundTextAboutUser(customer2);
 
-        account.setAccountSelection("number:1014");
-        account.setAccountNumber("1014");
-        account.setAccountBalance("0");
-        account.setAccountCurrency("Pound");
+        account.enterAccountSelection("number:1014");
+        account.checkAccountNumber("1014");
+        account.checkAccountBalance("0");
+        account.checkAccountCurrency("Pound");
 
-        account.setDepositButton();
+        account.clickDepositButton();
 
-        account.setAmountInter("0");
-        account.setDepositEnterButton();
-        account.setTextDepositSuccessful();
+        account.enterAmountInter("0");
+        account.clickDepositEnterButton();
+        account.noTextDepositSuccessful();
 
         account.amountInter.clear();
-        account.setAmountInter("1");
+        account.enterAmountInter("1");
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy h:mm:ss aaa",Locale.ENGLISH);
         String dateDeposit = dateFormat.format(new Date());
-        account.setDepositEnterButton();
-        account.setTextDepositSuccessful("Deposit successful");
+        account.clickDepositEnterButton();
+        account.YesTextDepositSuccessful("Deposit successful");
 
-        account.setTransactionsButton();
+        account.clickTransactionsButton();
         webdriver().shouldHave(url(ConfProperties.getProperty("urlTransaction")));
-        account.setTransactionDate(dateDeposit);
-        account.setTransactionSum("1");
-        account.setTransactionType("Credit");
+        account.checkTransactionDate(dateDeposit);
+        account.checkTransactionSum("1");
+        account.checkTransactionType("Credit");
 
     }
 }

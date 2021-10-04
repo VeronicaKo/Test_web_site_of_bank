@@ -14,15 +14,15 @@ public class LoginTest {
         String customer1 = "Albus Dumbledore";
         String customer2 = "Neville Longbottom";
         open(ConfProperties.getProperty("loginpage"));
-        loginpage.setCustomerButton();
+        loginpage.clickCustomerButton();
         loginpage.checkUrl("urlCustomer");
-        loginpage.setUserSelection(customer1);
-        loginpage.setUserSelection("");
-        loginpage.setLoginButtonNotBe();
-        loginpage.setUserSelection(customer2);
-        loginpage.setLoginButton();
+        loginpage.enterUserSelection(customer1);
+        loginpage.enterUserSelection("");
+        loginpage.loginButtonNotBe();
+        loginpage.enterUserSelection(customer2);
+        loginpage.clickLoginButton();
         loginpage.checkUrl("urlAccount");
-        loginpage.setFoundTextAboutUser(customer2);
+        loginpage.foundTextAboutUser(customer2);
     }
 
 

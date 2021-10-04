@@ -18,23 +18,23 @@ public class LoginPage {
         webdriver().shouldHave(url(ConfProperties.getProperty(OurUrl)));
     }
 
-    public void setCustomerButton() {
+    public void clickCustomerButton() {
         customerButton.click();
     }
 
-    public void setUserSelection(String userName) {
+    public void enterUserSelection(String userName) {
         userSelection.selectOptionContainingText(userName);
     }
 
-    public void setLoginButtonNotBe() {
+    public void loginButtonNotBe() {
         loginButton.shouldNotBe(visible);
     }
 
-    public void setLoginButton() {
+    public void clickLoginButton() {
         loginButton.click();
     }
 
-    public void setFoundTextAboutUser(String UserName) {
+    public void foundTextAboutUser(String UserName) {
         foundTextAboutUser.shouldHave(exactText(UserName));
     }
 }

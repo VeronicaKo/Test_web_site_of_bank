@@ -26,55 +26,55 @@ public class Account {
     public SelenideElement transactionType = $$(By.className("ng-binding")).get(2);
 
 
-    public void setAccountSelection(String accSelection) {
+    public void enterAccountSelection(String accSelection) {
         accountSelection.selectOptionByValue(accSelection);
     }
 
-    public void setAccountNumber(String accNumber) {
+    public void checkAccountNumber(String accNumber) {
         accountNumber.shouldHave(exactText(accNumber));
     }
 
-    public void setAccountBalance(String accBalance) {
+    public void checkAccountBalance(String accBalance) {
         accountBalance.shouldHave(exactText(accBalance));
     }
 
-    public void setAccountCurrency(String accCurrency) {
+    public void checkAccountCurrency(String accCurrency) {
         accountCurrency.shouldHave(exactText(accCurrency));
     }
 
-    public void setDepositButton() {
+    public void clickDepositButton() {
         depositButton.click();
     }
 
-    public void setAmountInter(String amInter) {
+    public void enterAmountInter(String amInter) {
         amountInter.sendKeys(amInter);
     }
 
-    public void setDepositEnterButton() {
+    public void clickDepositEnterButton() {
         depositEnterButton.click();
     }
 
-    public void setTextDepositSuccessful() {
+    public void noTextDepositSuccessful() {
         textDepositSuccessful.shouldNotBe(visible);
     }
 
-    public void setTransactionsButton() {
+    public void clickTransactionsButton() {
         transactionsButton.click();
     }
 
-    public void setTextDepositSuccessful(String textDepSuccessful) {
+    public void YesTextDepositSuccessful(String textDepSuccessful) {
         textDepositSuccessful.shouldHave(exactText(textDepSuccessful));
     }
 
-    public void setTransactionDate(String trDate) {
+    public void checkTransactionDate(String trDate) {
         transactionDate.shouldHave(exactText(trDate));
     }
 
-    public void setTransactionSum(String trSum) {
+    public void checkTransactionSum(String trSum) {
         transactionSum.shouldHave(exactText(trSum));
     }
 
-    public void setTransactionType(String trType) {
+    public void checkTransactionType(String trType) {
         transactionType.shouldHave(exactText(trType));
     }
 }
