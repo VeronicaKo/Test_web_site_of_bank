@@ -14,12 +14,12 @@ public class LoginTest {
     public void testLogin() {
         open(ConfProperties.getProperty("loginpage"));
         locatorloginpage.customerButton.click();
-        webdriver().shouldHave(url("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
+        webdriver().shouldHave(url(ConfProperties.getProperty("urlCustomer")));
         locatorloginpage.userSelection.selectOptionByValue("4");
         locatorloginpage.userSelection.selectOptionByValue("");
         locatorloginpage.userSelection.selectOptionByValue("5");
         locatorloginpage.loginButton.click();
-        webdriver().shouldHave(url("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account"));
+        webdriver().shouldHave(url(ConfProperties.getProperty("urlAccount")));
         locatorloginpage.foundTextAboutUser.shouldHave(exactText("Neville Longbottom"));
     }
 
