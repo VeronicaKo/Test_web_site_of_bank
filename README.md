@@ -43,5 +43,5 @@
 
 ### Демонстрация
 
-[![Watch the video]()](https://youtu.be/4IMbqyhpB1U)
+[![Watch the video](for__video.png)](https://youtu.be/4IMbqyhpB1U)
 
