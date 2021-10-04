@@ -9,6 +9,8 @@ import java.util.Locale;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.*;
 
 public class DepositTest {
     private final LocatorAccount locatoraccount = new LocatorAccount();
@@ -18,10 +20,12 @@ public class DepositTest {
     public void testDeposit(){
         open(ConfProperties.getProperty("loginpage"));
         locatorloginpage.customerButton.click();
+        webdriver().shouldHave(url("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/customer"));
         locatorloginpage.userSelection.selectOptionByValue("4");
         locatorloginpage.userSelection.selectOptionByValue("");
         locatorloginpage.userSelection.selectOptionByValue("5");
         locatorloginpage.loginButton.click();
+        webdriver().shouldHave(url("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/account"));
         locatorloginpage.foundTextAboutUser.shouldHave(exactText("Neville Longbottom"));
 
         locatoraccount.accountSelection.selectOptionByValue("number:1014");
@@ -44,6 +48,7 @@ public class DepositTest {
         locatoraccount.textDepositSuccessful.shouldHave(exactText("Deposit successful"));
 
         locatoraccount.transactionsButton.click();
+        webdriver().shouldHave(url("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/listTx"));
         locatoraccount.transactionDate.shouldHave(exactText(dateDeposit));
         locatoraccount.transactionSum.shouldHave(exactText("1"));
         locatoraccount.transactionType.shouldHave(exactText("Credit"));
