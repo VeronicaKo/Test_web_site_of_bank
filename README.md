@@ -1,4 +1,4 @@
-## Тестовое задание на должность QA Automation Engineer в Кубань-кредит банке
+## Тестовое задание на должность QA Automation Engineer 
 - Настроить проект с Maven в качестве платформы для сборки
 - Добавить Selenide, TestNG, REST-ASSURED в зависимости Maven
 - С помощью Selenide открыть и написать пару авто тестов для сайта https://www.globalsqa.com/angularJs-protractor/BankingProject/
